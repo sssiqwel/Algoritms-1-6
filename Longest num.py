@@ -1,0 +1,15 @@
+def longest_nums(nums):
+    values = set(nums)
+    best = 0
+
+    for x in values:
+        if x - 1 not in values:
+            length = 1
+            while x + length in values:
+                length += 1
+            best = max(best, length)
+
+    return best
+
+nums = [100, 4, 200, 1, 3, 2]
+print(longest_nums(nums))
